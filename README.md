@@ -57,9 +57,9 @@ You can also pass function that returns query or mutation. This is useful when y
 ```typescript
 client
     .registerQuery(
-        'getUser',
+        'admins',
         {
-            query: (name: string) => new Query('getUser')
+            query: (name: string) => new Query('admins')
                 .addArgument('name', 'String', name)
                 .addFieldList<string, {
                     name: string,
@@ -101,3 +101,13 @@ const result = await newClient.query(['admins'])
 
 const mutationResult = await newClient.mutate(['deleteUser', 5])
 ```
+
+<a href="https://ibb.co/NS5CtW6"><img src="https://i.ibb.co/gVN9mtM/Monosnap-index-ts-opus-2022-09-30-23-33-51.png" alt="Monosnap-index-ts-opus-2022-09-30-23-33-51" border="0"></a>
+
+<a href="https://ibb.co/k8XsSrt"><img src="https://i.ibb.co/wW4Fzbf/Monosnap-index-ts-opus-2022-09-30-23-37-25.png" alt="Monosnap-index-ts-opus-2022-09-30-23-37-25" border="0"></a>
+
+Return type is automatically infered from query/mutation that has been registered under used key
+
+In addition, if you passed function to generate query, argument type will be infered as well
+
+<a href="https://ibb.co/sCGCRp3"><img src="https://i.ibb.co/C6Z68p0/Monosnap-index-ts-opus-2022-09-30-23-39-59.png" alt="Monosnap-index-ts-opus-2022-09-30-23-39-59" border="0"></a>
